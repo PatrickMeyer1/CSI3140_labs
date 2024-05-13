@@ -1,0 +1,52 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 5px;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+a {
+    color: blue;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.education,
+.experience,
+.projects,
+.technical-skills {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+section > article {
+    margin-bottom: 20px;
+}
