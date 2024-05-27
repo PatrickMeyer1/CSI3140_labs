@@ -1,15 +1,40 @@
 function createGame(n) {
     // Initially fill board with '.'
     const board = Array(n).fill('.');
-    const pacmanGameIndex = Math.floor(Math.random() * n);
-    const ghostGameIndex = Math.floor(Math.random() * n);
-    const fruitGameIndex = Math.floor(Math.random() * n);
+    // Generating random indices for pacman, ghost, fruit
+    const indices = [];
+    while (indices.length < 3) {
+        const randomIndex = Math.floor(Math.random() * n);
+        if (!indices.includes(randomIndex)) {
+            indices.push(randomIndex);
+        }
+    }
 
-    // Populate board with pacman and fruit/ghost
-    board[pacmanGameIndex] = 'C';
-    board[ghostGameIndex] = '^.';
-    board[fruitGameIndex] = '@';
+    // Assigning indices to board
+    board[indices[0]] = 'C';
+    board[indices[1]] = '^.';
+    board[indices[2]] = '@';
 
+    return board;
+}
+
+function moveLeft(game) {
+    const currentIndex = game.indexOf('C');
+    // Check if the pacman is the first element in the array (board)
+    if (currentIndex > 0) {
+        game[currentIndex] = '';
+        game[currentIndex - 1] = 'C';
+    }
+    return game;
+}
+
+function moveRight(game) {
+    const currentIndex = game.indexOf('C');
+    // Check if the pacman is the last element in the array (board)
+    if (currentIndex < game.length - 1) {
+        game[currentIndex] = '';
+        game[currentIndex + 1] = 'C';
+    }
     return game;
 }
 
