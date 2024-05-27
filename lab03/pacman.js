@@ -45,8 +45,17 @@ function moveRight(game) {
     return game;
 }
 
+function levelCompleted(game) {
+    if (!game.includes('.')) {
+        level++;
+        return true;
+    }
+    return false;
+}
+
 // Initialize score
 let score = 0;
+let level = 1;
 const gameBoard = createGame(10);
-console.log(gameBoard);
+
 
