@@ -4,15 +4,15 @@ function createGame(n) {
     // Generating random indices for pacman, ghost, fruit
     const indices = [];
     while (indices.length < 3) {
-        const randomIndex = Math.floor(Math.random() * n);
-        if (!indices.includes(randomIndex)) {
-            indices.push(randomIndex);
+        const index = Math.floor(Math.random() * n);
+        if (!indices.includes(index)) {
+            indices.push(index);
         }
     }
 
     // Assigning indices to board
     board[indices[0]] = 'C';
-    board[indices[1]] = '^.';
+    board[indices[1]] = '^';
     board[indices[2]] = '@';
 
     return board;
@@ -53,9 +53,31 @@ function levelCompleted(game) {
     return false;
 }
 
+function ghostMove(game) {
+    const currentIndex = game.indexOf('^');
+    const randomDir = Math.floor(Math.random() * 2);
+    if (randomDir === 0) {
+        if (currentIndex > 0) {
+            game[currentIndex] = '';
+            game[currentIndex - 1] = '^';
+        }
+    } else {
+        if (currentIndex < game.length - 1) {
+            game[currentIndex] = '';
+            game[currentIndex + 1] = '^';
+        }
+    }
+    return game;
+}
+
 // Initialize score
 let score = 0;
 let level = 1;
 const gameBoard = createGame(10);
-
+console.log(gameBoard);
+console.log(ghostMove(gameBoard));
+console.log(ghostMove(gameBoard));
+console.log(ghostMove(gameBoard));
+console.log(ghostMove(gameBoard));
+console.log(ghostMove(gameBoard));
 
